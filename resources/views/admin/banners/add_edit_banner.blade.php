@@ -102,10 +102,7 @@
                                         <a target="_blank" href="{{ url('front/images/banner_images/' . $banner['image']) }}">View Banner Image</a>
                                     @endif
                                 </div>
-                                <div class="form-group">
-                                    <label for="link">Banner Link</label>
-                                    <input type="text" class="form-control" id="link" placeholder="Enter Banner Link" name="link" @if (!empty($banner['link'])) value="{{ $banner['link'] }}" @else value="{{ old('link') }}" @endif> 
-                                </div>
+                                
                                 <div class="form-group">
                                     <label for="title">Banner Title</label>
                                     <input type="text" class="form-control" id="title" placeholder="Enter Banner Title" name="title" @if (!empty($banner['title'])) value="{{ $banner['title'] }}" @else value="{{ old('title') }}" @endif> 

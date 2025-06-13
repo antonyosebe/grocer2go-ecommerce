@@ -87,7 +87,6 @@ class BannersController extends Controller
             // dd($data);
 
             $banner->type   = $data['type'];
-            $banner->link   = $data['link'];
             $banner->title  = $data['title'];
             $banner->alt    = $data['alt'];
             $banner->status = 1;

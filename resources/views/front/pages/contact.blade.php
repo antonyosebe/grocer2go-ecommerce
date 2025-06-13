@@ -110,34 +110,40 @@
                     <div class="information-about-wrapper">
                         <h1 class="contact-h1">Information About Us</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, tempora, voluptate. Architecto aspernatur, culpa cupiditate deserunt dolore eos facere in, incidunt omnis quae quam quos, similique sunt tempore vel vero.
+                            At Grocer2Go, we’re redefining the way you shop for groceries. Founded with the vision to make fresh food and household essentials more accessible, we deliver directly from your favorite local stores straight to your doorstep - quickly, reliably, and affordably.
                         </p>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, tempora, voluptate. Architecto aspernatur, culpa cupiditate deserunt dolore eos facere in, incidunt omnis quae quam quos, similique sunt tempore vel vero.
+                            Whether you're a busy professional, a parent juggling schedules, or simply want to avoid long lines, Grocer2Go is here to save you time and effort. Our platform connects you to a wide selection of fresh produce, pantry staples, snacks, and even specialty items - all available at your fingertips.
+                        </p>
+                        <p>
+                            We believe in supporting local communities, promoting healthy living, and delivering convenience without compromise. With a user-friendly app, real-time tracking, and excellent customer support, your grocery shopping experience has never been easier.
+                        </p>
+                        <p>
+                            Grocer2Go - Freshness at Your Fingertips.
                         </p>
                     </div>
                     <div class="contact-us-wrapper">
                         <h1 class="contact-h1">Contact Us</h1>
                         <div class="contact-material u-s-m-b-16">
                             <h6>Location</h6>
-                            <span>10 Salah Salem St.</span>
-                            <span>Cairo, Egypt</span>
+                            <span>Sammer Lane</span>
+                            <span>Ohio, US</span>
                         </div>
                         <div class="contact-material u-s-m-b-16">
                             <h6>Email</h6>
-                            <span>developers@computerscience.com</span>
+                            <span>test@grocer2go.com</span>
                         </div>
                         <div class="contact-material u-s-m-b-16">
                             <h6>Telephone</h6>
-                            <span>+201122237359</span>
+                            <span>+0123456789</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="u-s-p-t-80">
+        <!-- <div class="u-s-p-t-80">
             <div id="map"></div>
-        </div>
+        </div> -->
     </div>
     <!-- Contact-Page /- -->
 @endsection

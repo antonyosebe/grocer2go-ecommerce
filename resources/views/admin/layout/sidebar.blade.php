@@ -172,7 +172,7 @@
             </li>
 
             
-            <!-- <li class="nav-item">
+            <li class="nav-item">
                 <a @if (Session::get('page') == 'shipping') style="background: #052CA3 !important; color: #FFF !important" @endif class="nav-link" data-toggle="collapse" href="#ui-shipping" aria-expanded="false" aria-controls="ui-shipping">
                     <i class="icon-layout menu-icon"></i>
                     <span class="menu-title">Shipping Management</span>
@@ -183,7 +183,7 @@
                         <li class="nav-item"> <a @if (Session::get('page') == 'shipping') style="background: #052CA3 !important; color: #FFF !important" @else style="background: #fff !important; color: #052CA3 !important" @endif class="nav-link" href="{{ url('admin/shipping-charges') }}">Shipping Charges</a></li>
                     </ul>
                 </div>
-            </li> -->
+            </li>
 
         @endif
 

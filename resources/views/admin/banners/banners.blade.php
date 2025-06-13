@@ -36,7 +36,6 @@
                                             <th>ID</th>
                                             <th>Image</th>
                                             <th>Type</th>
-                                            <th>Link</th>
                                             <th>Title</th>
                                             <th>Alt</th>
                                             <th>Status</th>
@@ -51,7 +50,6 @@
                                                     <img style="width: 180px" src="{{ asset('front/images/banner_images/' . $banner['image']) }}">
                                                 </td>
                                                 <td>{{ $banner['type'] }}</td>
-                                                <td>{{ $banner['link'] }}</td>
                                                 <td>{{ $banner['title'] }}</td>
                                                 <td>{{ $banner['alt'] }}</td>
                                                 <td>

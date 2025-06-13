@@ -237,10 +237,7 @@
                                 <span>Product Code:</span>
                                 <span>{{ $productDetails['product_code'] }}</span>
                             </div>
-                            <!-- <div class="left">
-                                <span>Product Color:</span>
-                                <span>{{ $productDetails['product_color'] }}</span>
-                            </div> -->
+                        
                             <div class="availability">
                                 <span>Availability:</span>
 
@@ -310,14 +307,14 @@
 
 
 
-                                <!-- <div class="sizes u-s-m-b-11" style="margin-top: 20px">
-                                    <span>Available Size:</span>
+                                <div class="sizes u-s-m-b-11" style="margin-top: 20px">
+                                    <span>Variation Available:</span>
                                     <div class="size-variant select-box-wrapper">
                                         <select class="select-box product-size" id="getPrice" product-id="{{ $productDetails['id'] }}" name="size" required> {{-- Check front/js/custom.js file --}}
 
 
 
-                                            <option value="">Select Size</option>
+                                            <option value="">Select Variation</option>
                                             @foreach ($productDetails['attributes'] as $attribute)
                                                 <option value="{{ $attribute['size'] }}">{{ $attribute['size'] }}</option>
                                             @endforeach
@@ -325,7 +322,7 @@
 
 
                                         </select>
-                                    </div> -->
+                                    </div>
                                 </div>
                             </div>
                             <div class="section-6-social-media-quantity-actions u-s-p-y-14">

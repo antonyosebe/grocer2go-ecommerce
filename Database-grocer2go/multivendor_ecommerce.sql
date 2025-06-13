@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admins` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `vendor_id` int NOT NULL,
@@ -50,38 +50,26 @@ INSERT INTO `admins` (`id`, `name`, `type`, `vendor_id`, `mobile`, `email`, `pas
 (1, 'Antony Osebe', 'superadmin', 0, '12345678', 'admin@admin.com', '$2a$12$xvkjSScUPRexfcJTAy9ATutIeGUuRgJrjDIdL/.xlrddEvRZINpeC', 'ahmed.jpg', 'No', 1, NULL, '2022-08-17 18:06:05'),
 (2, 'Test Vendor 1', 'vendor', 1, '01259598421', 'test1@vendor.com', '$2a$12$xvkjSScUPRexfcJTAy9ATutIeGUuRgJrjDIdL/.xlrddEvRZINpeC', '83157.jpg', 'Yes', 1, NULL, '2023-01-02 10:10:56'),
 (3, 'Test Vendor 2', 'vendor', 5, '01154572136', 'test2@vendor.com', '$2a$12$xvkjSScUPRexfcJTAy9ATutIeGUuRgJrjDIdL/.xlrddEvRZINpeC', NULL, 'No', 1, '2022-10-13 22:55:41', '2022-10-15 21:55:37'),
-(4, 'Test Vendor 3', 'vendor', 6, '01098571935', 'test3@vendor.com', '$2a$12$xvkjSScUPRexfcJTAy9ATutIeGUuRgJrjDIdL/.xlrddEvRZINpeC', '', 'Yes', 0, '2022-10-14 01:20:03', '2022-10-15 21:56:18'),
-(6, 'Safaa Masoud', 'vendor', 8, '01255374956', 'safaa@vendor.com', '$2a$12$xvkjSScUPRexfcJTAy9ATutIeGUuRgJrjDIdL/.xlrddEvRZINpeC', NULL, 'Yes', 0, '2022-10-14 18:46:53', '2022-10-15 17:10:11'),
-(7, 'Ghali Shennway', 'vendor', 9, '01154557789', 'ghali@yahoo.com', '$2a$12$xvkjSScUPRexfcJTAy9ATutIeGUuRgJrjDIdL/.xlrddEvRZINpeC', NULL, 'Yes', 1, '2022-10-14 18:48:28', '2022-10-15 17:10:10');
+(4, 'Test Vendor 3', 'vendor', 6, '01098571935', 'test3@vendor.com', '$2a$12$xvkjSScUPRexfcJTAy9ATutIeGUuRgJrjDIdL/.xlrddEvRZINpeC', '', 'Yes', 0, '2022-10-14 01:20:03', '2022-10-15 21:56:18');
 
--- --------------------------------------------------------
 
 --
 -- Table structure for table `banners`
 --
 
 CREATE TABLE `banners` (
-  `id` bigint UNSIGNED NOT NULL,
-  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alt` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `image` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `alt` varchar(255) NOT NULL,
   `status` tinyint NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `banners`
---
 
-INSERT INTO `banners` (`id`, `image`, `type`, `link`, `title`, `alt`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'banner-1.jpg', 'Slider', 'spring-collection', 'Spring Collection', 'Spring Collection', 1, NULL, '2022-09-26 16:48:57'),
-(2, 'banner-2.jpg', 'Slider', 'tops', 'Tops', 'Tops', 1, NULL, '2022-09-26 16:57:36'),
-(5, '22225.png', '', 'men', 'men', 'men', 0, '2022-09-25 20:17:36', '2022-09-25 20:57:19'),
-(6, '50216.jpg', 'Fix', 'men', 'men', 'men', 1, '2022-09-26 16:55:43', '2022-09-26 16:55:43'),
-(7, '6455.jpg', 'Fix', 'test', 'test', 'test', 1, '2022-09-26 16:58:08', '2022-09-26 16:58:08');
+
 
 -- --------------------------------------------------------
 
@@ -90,7 +78,7 @@ INSERT INTO `banners` (`id`, `image`, `type`, `link`, `title`, `alt`, `status`, 
 --
 
 CREATE TABLE `brands` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -98,18 +86,6 @@ CREATE TABLE `brands` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `brands`
---
-
-INSERT INTO `brands` (`id`, `name`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Arrow', 1, NULL, '2022-08-26 23:17:18'),
-(2, 'Gap', 1, NULL, '2022-08-26 23:17:18'),
-(3, 'Lee', 1, NULL, '2022-08-26 23:17:19'),
-(4, 'Samsung', 1, NULL, NULL),
-(5, 'LG', 1, NULL, NULL),
-(6, 'Lenovo', 1, NULL, NULL),
-(7, 'MI', 1, NULL, '2022-08-26 23:17:17'),
-(9, 'Others', 1, '2022-08-27 21:39:09', '2022-08-27 21:39:09');
 
 -- --------------------------------------------------------
 
@@ -118,7 +94,7 @@ INSERT INTO `brands` (`id`, `name`, `status`, `created_at`, `updated_at`) VALUES
 --
 
 CREATE TABLE `carts` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `session_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int DEFAULT NULL,
   `product_id` int NOT NULL,
@@ -128,29 +104,12 @@ CREATE TABLE `carts` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `carts`
---
 
-INSERT INTO `carts` (`id`, `session_id`, `user_id`, `product_id`, `size`, `quantity`, `created_at`, `updated_at`) VALUES
-(2, '7ad795dc60d80e18d539758068e3c4e2', 0, 5, 'Medium', 1, '2022-11-08 17:42:14', '2022-11-08 17:46:52'),
-(4, '22ff3817f14d878331bf007d2dcea6f5', 0, 5, 'Small', 8, '2022-11-08 22:09:58', '2022-11-09 00:09:17'),
-(9, '6d717cff9f01d04ff7ef2debec9edf31', 0, 5, 'Small', 1, '2022-11-09 10:14:25', '2022-11-09 10:14:25'),
-(11, '56254dd8ea2bfb0bf12532b7d3da1a81', 0, 5, 'Medium', 6, '2022-11-13 23:51:35', '2022-11-13 23:58:16'),
-(12, '56254dd8ea2bfb0bf12532b7d3da1a81', 0, 5, 'Small', 1, '2022-11-13 23:56:37', '2022-11-13 23:56:37'),
-(17, '5088d2b9d971513dc3fbf2b98f3dfb97', 0, 4, 'Small', 3, '2022-12-06 20:59:02', '2022-12-06 23:05:50'),
-(42, '5617d343aa7e9b62d5475c899ca3dae3', 1, 5, 'Medium', 1, '2023-03-22 22:24:40', '2023-03-22 23:53:31'),
-(67, 'f945daeb6a96dd25613f5da29ec2b2f1', 0, 2, 'Medium', 1, '2023-04-08 13:29:51', '2023-04-08 13:29:51'),
-(84, '353379f27d45f77a258c3ab7594f84d3', 0, 1, '64GB-4GB', 1, '2024-08-03 20:13:11', '2024-08-03 20:13:11');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `parent_id` int NOT NULL,
   `section_id` int NOT NULL,
   `category_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -167,28 +126,12 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `categories`
---
 
-INSERT INTO `categories` (`id`, `parent_id`, `section_id`, `category_name`, `category_image`, `category_discount`, `description`, `url`, `meta_title`, `meta_description`, `meta_keywords`, `status`, `created_at`, `updated_at`) VALUES
-(1, 0, 1, 'Men', '', 0.00, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 'men', NULL, NULL, NULL, 1, NULL, '2022-09-29 14:47:51'),
-(2, 0, 1, 'Women', '', 0.00, '', 'women', '', '', '', 1, NULL, '2022-08-20 22:38:56'),
-(3, 0, 1, 'Kids', '', 0.00, '', 'kids', '', '', '', 1, NULL, '2022-09-22 19:33:59'),
-(4, 0, 2, 'Mobiles', '', 10.00, 'test', 'mobiles', 'mobiles', 'mobiles', 'mobiles', 1, '2022-08-21 19:11:28', '2022-08-26 18:27:54'),
-(5, 4, 2, 'Smartphones', '', 10.00, 'j', 'smartphones', 'smartphones', 'smartphones', 'smartphones', 1, '2022-08-22 23:30:07', '2022-10-31 21:02:48'),
-(6, 1, 1, 'T-Shirts', '', 0.00, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 'tshirts', 'Men T-shirts', 'Huge variety of men t-shirts', 'men t-shirts, cotton t-shirts', 1, '2022-08-24 17:58:46', '2023-05-05 18:32:28'),
-(7, 1, 1, 'Shirts', '', 0.00, NULL, 'shirts', NULL, NULL, NULL, 1, '2022-08-25 00:09:23', '2022-08-25 00:09:51'),
-(8, 2, 1, 'Tops', '', 0.00, NULL, 'tops', NULL, NULL, NULL, 1, '2022-08-25 00:17:42', '2022-08-25 00:17:42'),
-(9, 0, 4, 'Refrigerators', '', 0.00, NULL, 'refrigerators', 'Refrigerators', NULL, NULL, 1, '2022-09-22 21:55:53', '2022-09-22 21:55:53');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `cod_pincodes`
 --
 
 CREATE TABLE `cod_pincodes` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `pincode` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -508,7 +451,7 @@ INSERT INTO `cod_pincodes` (`id`, `pincode`, `created_at`, `updated_at`) VALUES
 --
 
 CREATE TABLE `countries` (
-  `id` int NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `country_code` varchar(2) NOT NULL DEFAULT '',
   `country_name` varchar(100) NOT NULL DEFAULT '',
   `status` tinyint NOT NULL DEFAULT '1',
@@ -775,7 +718,7 @@ INSERT INTO `countries` (`id`, `country_code`, `country_name`, `status`, `create
 --
 
 CREATE TABLE `coupons` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `vendor_id` int NOT NULL,
   `coupon_option` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `coupon_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -792,25 +735,12 @@ CREATE TABLE `coupons` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `coupons`
---
 
-INSERT INTO `coupons` (`id`, `vendor_id`, `coupon_option`, `coupon_code`, `categories`, `brands`, `users`, `coupon_type`, `amount_type`, `amount`, `expiry_date`, `status`, `created_at`, `updated_at`) VALUES
-(1, 0, 'Manual', 'test10', '1,6,7,2,8,3', '2,3', '', 'Single Time', 'Percentage', 10.00, '2023-12-01', 1, NULL, '2023-01-05 18:08:22'),
-(3, 0, 'Automatic', '3dTtKNg7', '1,6,7', '1,2', 'ramy@yopmail.com,clitus@user.com', 'Multiple Times', 'Percentage', 10.00, '2023-12-31', 1, '2022-12-15 14:56:01', '2023-01-05 17:37:12'),
-(4, 0, 'Manual', 'test200', '1,6,7', '1,2,4', 'ramy@yopmail.com,clitus@user.com,fouad@gmail.com,mahmoud@yahoo.com', 'Single Time', 'Fixed', 200.00, '2022-12-31', 1, '2022-12-15 14:59:24', '2022-12-18 12:49:19'),
-(5, 1, 'Automatic', 'PHmKm7WL', '1,6,7,2,8,3', '1,2,3,4,5,6,7', '', 'Multiple Times', 'Percentage', 10.00, '2023-08-13', 1, '2023-01-02 23:27:03', '2023-01-02 23:27:03'),
-(6, 0, 'Automatic', 'ekVpnDJL', '1,6,7', '1,2,3,9', '', 'Single Time', 'Percentage', 10.00, '2023-07-11', 1, '2023-03-24 01:03:42', '2023-03-24 01:03:42'),
-(7, 0, 'Automatic', 'Y3gsKF5G', '1,6,7,2,8,3,4,5,9', '1,2,3,4,5,6,7,9', '', 'Multiple Times', 'Percentage', 10.00, '2023-12-31', 1, '2023-04-25 12:49:06', '2023-04-25 12:49:06');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `delivery_addresses`
 --
 
 CREATE TABLE `delivery_addresses` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `user_id` int NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -823,19 +753,6 @@ CREATE TABLE `delivery_addresses` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `delivery_addresses`
---
-
-INSERT INTO `delivery_addresses` (`id`, `user_id`, `name`, `address`, `city`, `state`, `country`, `pincode`, `mobile`, `status`, `created_at`, `updated_at`) VALUES
-(3, 2, 'Ibrahim', '16 El Fath St.', 'Cairo', 'Cairo', 'Egypt', '141001', '0119578625', 1, NULL, '2023-04-12 19:24:50'),
-(5, 2, 'Ibrahim Mohamed', '20 El Nasr St., El Mansheya', 'Alexandria', 'Alexandria', 'Egypt', '141001', '0100995033', 1, '2023-02-25 23:02:09', '2023-04-12 19:25:30'),
-(7, 2, 'Ibrahim', '28 Fouad St.', 'Alexandria', 'Alexandria', 'Egypt', '55663', '01205857145', 1, '2023-02-25 23:11:25', '2023-02-25 23:11:25'),
-(9, 2, 'sgzdgfSZG', 'sgsfg', 'sgsg', 'SGszg', 'Egypt', 'gsrgzsfg', 'zsgzsg', 1, '2023-02-26 21:32:20', '2023-02-26 21:32:20'),
-(10, 1, 'Ramy Yasser', '25 Abbas El-Akkad St.', 'Cairo', 'Cairo', 'Egypt', '542174', '0129568322', 1, '2023-03-22 23:55:04', '2023-03-22 23:55:04');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `failed_jobs`
@@ -858,7 +775,7 @@ CREATE TABLE `failed_jobs` (
 --
 
 CREATE TABLE `migrations` (
-  `id` int UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -926,23 +843,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `newsletter_subscribers` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `newsletter_subscribers`
---
-
-INSERT INTO `newsletter_subscribers` (`id`, `email`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'yasser100@yopmail.com', 1, '2023-05-31 18:40:41', '2023-05-31 21:29:24'),
-(3, 'test@test.com', 1, '2023-06-02 15:38:17', '2023-06-02 15:38:17'),
-(4, 'check@check.com', 1, '2023-06-02 15:41:41', '2023-06-06 17:39:13');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `oauth_access_tokens`
@@ -1005,36 +912,18 @@ CREATE TABLE `oauth_clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `oauth_clients`
---
-
-INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `provider`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'StackDevelopers Personal Access Client', 'kId7oUF3BLJkScW8b0M9aU0vCKquH67EbOBeJzEr', NULL, 'http://localhost', 1, 0, 0, '2023-04-29 21:21:51', '2023-04-29 21:21:51'),
-(2, NULL, 'StackDevelopers Password Grant Client', 'x7QUOhmzDimA8zZBoh7OG2lWocs9QuaCcsQfZMFB', 'users', 'http://localhost', 0, 1, 0, '2023-04-29 21:21:51', '2023-04-29 21:21:51');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `oauth_personal_access_clients`
 --
 
 CREATE TABLE `oauth_personal_access_clients` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `client_id` bigint UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `oauth_personal_access_clients`
---
 
-INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
-(1, 1, '2023-04-29 21:21:51', '2023-04-29 21:21:51');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `oauth_refresh_tokens`
 --
 
@@ -1052,7 +941,7 @@ CREATE TABLE `oauth_refresh_tokens` (
 --
 
 CREATE TABLE `orders` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `user_id` int NOT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -1076,28 +965,11 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `user_id`, `name`, `address`, `city`, `state`, `country`, `pincode`, `mobile`, `email`, `shipping_charges`, `coupon_code`, `coupon_amount`, `order_status`, `payment_method`, `payment_gateway`, `grand_total`, `courier_name`, `tracking_number`, `is_pushed`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Ibrahim', '16 El Fath St.', 'Cairo', 'Cairo', 'Egypt', '12154', '01195786255', 'clitus@user.com', 0.00, '3dTtKNg7', 220.00, 'Shipped', 'COD', 'COD', 1980.00, '', '', 0, '2023-03-01 20:27:38', '2023-04-16 20:49:33'),
-(2, 2, 'Ibrahim', '16 El Fath St.', 'Cairo', 'Cairo', 'Egypt', '12154', '01195786255', 'clitus@user.com', 0.00, '3dTtKNg7', 220.00, 'New', 'COD', 'COD', 1980.00, '', '', 0, '2023-03-01 21:20:52', '2023-03-04 21:46:33'),
-(3, 2, 'sgzdgfSZG', 'sgsfg', 'sgsg', 'SGszg', 'Egypt', 'gsrgzsfg', 'zsgzsg', 'clitus@user.com', 0.00, '3dTtKNg7', 220.00, 'New', 'COD', 'COD', 880.00, '', '', 0, '2023-03-01 21:37:23', '2023-03-01 21:37:23'),
-(4, 2, 'Ibrahim Mohamed', '20 El Nasr St., El Mansheya', 'Alexandria', 'Alexandria', 'Egypt', '57843', '01009950333', 'clitus@user.com', 0.00, NULL, NULL, 'Shipped', 'Prepaid', 'Paypal', 1080.00, '', '', 1, '2023-03-03 21:34:13', '2023-04-17 22:57:51'),
-(6, 2, 'Ibrahim', '16 El Fath St.', 'Cairo', 'Cairo', 'Egypt', '12154', '01195786255', 'clitus@user.com', 0.00, NULL, NULL, 'New', 'COD', 'COD', 807.50, '', '', 0, '2023-03-05 20:59:36', '2023-03-05 20:59:36'),
-(7, 2, 'Ibrahim', '16 El Fath St.', 'Cairo', 'Cairo', 'Egypt', '12154', '01195786255', 'clitus@user.com', 0.00, NULL, NULL, 'New', 'COD', 'COD', 1887.50, '', '', 0, '2023-03-05 21:04:45', '2023-03-05 21:04:45'),
-(9, 2, 'Ibrahim', '16 El Fath St.', 'Cairo', 'Cairo', 'Egypt', '12154', '01195786255', 'clitus@user.com', 0.00, NULL, NULL, 'New', 'COD', 'COD', 1200.00, '', '', 0, '2023-03-07 18:48:59', '2023-03-07 18:48:59'),
-(10, 2, 'Ibrahim Mohamed', '20 El Nasr St., El Mansheya', 'Alexandria', 'Alexandria', 'Egypt', '57843', '01009950333', 'clitus@user.com', 0.00, NULL, NULL, 'New', 'COD', 'COD', 13200.00, '', '', 0, '2023-03-07 19:43:24', '2023-03-07 19:43:24');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `orders_logs`
 --
 
 CREATE TABLE `orders_logs` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `order_id` int NOT NULL,
   `order_item_id` int DEFAULT NULL,
   `order_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -1109,20 +981,6 @@ CREATE TABLE `orders_logs` (
 -- Dumping data for table `orders_logs`
 --
 
-INSERT INTO `orders_logs` (`id`, `order_id`, `order_item_id`, `order_status`, `created_at`, `updated_at`) VALUES
-(1, 11, 13, 'Shipped', '2023-03-09 22:54:15', '2023-03-09 22:54:15'),
-(2, 11, NULL, 'Shipped', '2023-03-16 00:49:03', '2023-03-16 00:49:03'),
-(3, 11, NULL, 'Shipped', '2023-03-16 01:55:33', '2023-03-16 01:55:33'),
-(4, 11, 14, 'Shipped', '2023-03-16 02:07:26', '2023-03-16 02:07:26'),
-(5, 11, 14, 'Shipped', '2023-03-16 02:11:32', '2023-03-16 02:11:32'),
-(6, 11, 14, 'Shipped', '2023-03-16 02:16:50', '2023-03-16 02:16:50'),
-(7, 15, 18, 'Shipped', '2023-03-17 21:34:41', '2023-03-17 21:34:41'),
-(8, 7, 8, 'Shipped', '2023-03-17 21:37:38', '2023-03-17 21:37:38'),
-(9, 11, 13, 'Shipped', '2023-03-17 22:39:12', '2023-03-17 22:39:12'),
-(10, 11, 13, 'Shipped', '2023-03-17 22:46:22', '2023-03-17 22:46:22'),
-(11, 1, NULL, 'Shipped', '2023-04-16 20:49:33', '2023-04-16 20:49:33'),
-(12, 4, NULL, 'Shipped', '2023-04-16 21:18:51', '2023-04-16 21:18:51');
-
 -- --------------------------------------------------------
 
 --
@@ -1130,7 +988,7 @@ INSERT INTO `orders_logs` (`id`, `order_id`, `order_item_id`, `order_status`, `c
 --
 
 CREATE TABLE `orders_products` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `order_id` int NOT NULL,
   `user_id` int NOT NULL,
   `vendor_id` int NOT NULL,
@@ -1138,7 +996,6 @@ CREATE TABLE `orders_products` (
   `product_id` int NOT NULL,
   `product_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_color` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_size` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_price` double(8,2) NOT NULL,
   `product_qty` int NOT NULL,
@@ -1151,90 +1008,12 @@ CREATE TABLE `orders_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `orders_products`
---
 
-INSERT INTO `orders_products` (`id`, `order_id`, `user_id`, `vendor_id`, `admin_id`, `product_id`, `product_code`, `product_name`, `product_color`, `product_size`, `product_price`, `product_qty`, `item_status`, `courier_name`, `tracking_number`, `commission`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, 1, 2, 8, 'BT501', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 1, '', '', '', 0, '2023-03-01 20:27:38', '2023-03-05 14:22:04'),
-(2, 1, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Medium', 1200.00, 1, '', '', '', 0, '2023-03-01 20:27:38', '2023-03-05 14:22:09'),
-(3, 2, 2, 1, 2, 8, 'BT501', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 1, '', '', '', 0, '2023-03-01 21:20:52', '2023-03-01 21:20:52'),
-(4, 2, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Medium', 1200.00, 1, '', '', '', 0, '2023-03-01 21:20:52', '2023-03-01 21:20:52'),
-(5, 3, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Small', 1100.00, 1, '', '', '', 0, '2023-03-01 21:37:23', '2023-03-01 21:37:23'),
-(6, 4, 2, 9, 7, 9, 'BT01', 'Black T-shirt', 'black', 'Small', 1080.00, 1, '', '', '', 0, '2023-03-03 21:34:13', '2023-03-05 20:53:43'),
-(7, 6, 2, 9, 7, 10, 'PT01', '100', 'Pink', 'Small', 807.50, 1, '', '', '', 0, '2023-03-05 20:59:36', '2023-03-05 20:59:36'),
-(8, 7, 2, 9, 7, 9, 'BT01', 'Black T-shirt', 'black', 'Small', 1080.00, 1, 'Shipped', 'FedEx', '39539936', 0, '2023-03-05 21:04:45', '2023-03-17 21:37:38'),
-(9, 7, 2, 9, 7, 10, 'PT01', '100', 'Pink', 'Small', 807.50, 1, '', '', '', 0, '2023-03-05 21:04:45', '2023-03-05 21:50:39'),
-(10, 9, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Medium', 1200.00, 1, NULL, '', '', 0, '2023-03-07 18:48:59', '2023-03-07 18:48:59'),
-(11, 10, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '64GB-4GB', 12000.00, 1, NULL, '', '', 0, '2023-03-07 19:43:24', '2023-03-07 19:43:24'),
-(12, 10, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Medium', 1200.00, 1, NULL, '', '', 0, '2023-03-07 19:43:24', '2023-03-07 19:43:24'),
-(13, 11, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '64GB-4GB', 12000.00, 1, 'Shipped', 'FedEx', '39539936', 0, '2023-03-07 19:46:03', '2023-03-17 22:46:22'),
-(14, 11, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Medium', 1200.00, 1, 'Shipped', 'Blue Dart', '345411515', 0, '2023-03-07 19:46:03', '2023-03-16 02:16:50'),
-(15, 14, 2, 0, 1, 4, 'BT01', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 1, NULL, NULL, NULL, 0, '2023-03-17 16:49:44', '2023-03-17 16:49:44'),
-(16, 14, 2, 9, 7, 10, 'PT01', '100', 'Pink', 'Small', 807.50, 1, NULL, NULL, NULL, 0, '2023-03-17 16:49:44', '2023-03-17 16:49:44'),
-(17, 15, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '64GB-4GB', 12000.00, 1, NULL, NULL, NULL, 0, '2023-03-17 17:31:40', '2023-03-17 17:31:40'),
-(18, 15, 2, 9, 7, 9, 'BT01', 'Black T-shirt', 'black', 'Small', 1080.00, 1, 'Shipped', 'FedEx', '546664564646', 0, '2023-03-17 17:31:40', '2023-03-17 21:34:40'),
-(19, 16, 2, 0, 1, 5, 'GT01', 'Green T-Shirt', 'Green', 'Small', 720.00, 1, NULL, NULL, NULL, 0, '2023-03-18 14:00:49', '2023-03-18 14:00:49'),
-(20, 17, 2, 0, 1, 4, 'BT01', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 1, NULL, NULL, NULL, 0, '2023-03-21 21:51:03', '2023-03-21 21:51:03'),
-(21, 18, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Medium', 1200.00, 1, NULL, NULL, NULL, 0, '2023-03-24 01:00:07', '2023-03-24 01:00:07'),
-(22, 19, 2, 0, 1, 5, 'GT01', 'Green T-Shirt', 'Green', 'Small', 720.00, 1, NULL, NULL, NULL, 0, '2023-03-24 01:18:08', '2023-03-24 01:18:08'),
-(23, 20, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Medium', 1200.00, 1, NULL, NULL, NULL, 0, '2023-03-25 01:58:45', '2023-03-25 01:58:45'),
-(24, 21, 2, 9, 7, 9, 'BT01', 'Black T-shirt', 'black', 'Small', 1080.00, 1, NULL, NULL, NULL, 0, '2023-03-26 02:27:48', '2023-03-26 02:27:48'),
-(25, 22, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '128GB-4GB', 14400.00, 1, NULL, NULL, NULL, 0, '2023-03-26 02:28:31', '2023-03-26 02:28:31'),
-(26, 23, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '64GB-4GB', 12000.00, 1, NULL, NULL, NULL, 0, '2023-03-26 02:31:11', '2023-03-26 02:31:11'),
-(27, 24, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '64GB-4GB', 12000.00, 1, NULL, NULL, NULL, 0, '2023-03-26 02:31:48', '2023-03-26 02:31:48'),
-(28, 25, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '128GB-4GB', 14400.00, 1, NULL, NULL, NULL, 0, '2023-03-26 02:34:22', '2023-03-26 02:34:22'),
-(29, 26, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '128GB-4GB', 14400.00, 1, NULL, NULL, NULL, 0, '2023-03-29 02:52:23', '2023-03-29 02:52:23'),
-(30, 27, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '128GB-4GB', 14400.00, 1, NULL, NULL, NULL, 0, '2023-03-30 02:00:43', '2023-03-30 02:00:43'),
-(31, 28, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '128GB-4GB', 14400.00, 1, NULL, NULL, NULL, 0, '2023-03-30 11:56:37', '2023-03-30 11:56:37'),
-(32, 29, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '128GB-4GB', 14400.00, 1, NULL, NULL, NULL, 0, '2023-03-30 13:12:25', '2023-03-30 13:12:25'),
-(33, 30, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '128GB-4GB', 14400.00, 1, NULL, NULL, NULL, 0, '2023-03-30 13:24:17', '2023-03-30 13:24:17'),
-(34, 31, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '128GB-4GB', 14400.00, 1, NULL, NULL, NULL, 0, '2023-03-30 13:43:28', '2023-03-30 13:43:28'),
-(35, 32, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '128GB-4GB', 14400.00, 1, NULL, NULL, NULL, 0, '2023-03-31 02:22:44', '2023-03-31 02:22:44'),
-(36, 33, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '128GB-4GB', 14400.00, 1, NULL, NULL, NULL, 0, '2023-03-31 23:23:39', '2023-03-31 23:23:39'),
-(37, 34, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Medium', 1200.00, 1, NULL, NULL, NULL, 0, '2023-04-04 20:45:06', '2023-04-04 20:45:06'),
-(38, 35, 2, 0, 1, 3, 'AT01', 'Arrow T-Shirt', 'Red', 'Small', 1100.00, 1, NULL, NULL, NULL, 0, '2023-04-05 14:44:38', '2023-04-05 14:44:38'),
-(39, 35, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Medium', 1200.00, 1, NULL, NULL, NULL, 0, '2023-04-05 14:44:38', '2023-04-05 14:44:38'),
-(40, 36, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Small', 1100.00, 2, NULL, NULL, NULL, 0, '2023-04-05 23:57:36', '2023-04-05 23:57:36'),
-(41, 37, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Medium', 1200.00, 1, NULL, NULL, NULL, 0, '2023-04-06 00:00:42', '2023-04-06 00:00:42'),
-(42, 37, 2, 0, 1, 4, 'BT01', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 3, NULL, NULL, NULL, 0, '2023-04-06 00:00:42', '2023-04-06 00:00:42'),
-(43, 38, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '64GB-4GB', 12000.00, 1, NULL, NULL, NULL, 0, '2023-04-08 02:40:23', '2023-04-08 02:40:23'),
-(44, 39, 2, 1, 2, 8, 'BT501', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 1, NULL, NULL, NULL, 0, '2023-04-21 23:08:52', '2023-04-21 23:08:52'),
-(45, 40, 2, 1, 2, 8, 'BT501', 'Blue T-Shirt', 'Blue', 'Medium', 1200.00, 1, NULL, NULL, NULL, 0, '2023-04-22 22:05:22', '2023-04-22 22:05:22'),
-(46, 40, 2, 1, 2, 8, 'BT501', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 1, NULL, NULL, NULL, 0, '2023-04-22 22:05:22', '2023-04-22 22:05:22'),
-(47, 41, 2, 1, 2, 8, 'BT501', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 1, NULL, NULL, NULL, 0, '2023-04-25 13:24:20', '2023-04-25 13:24:20'),
-(48, 41, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Large', 1300.00, 1, NULL, NULL, NULL, 0, '2023-04-25 13:24:20', '2023-04-25 13:24:20'),
-(49, 42, 2, 0, 1, 5, 'GT01', 'Green T-Shirt', 'Green', 'Medium', 810.00, 1, NULL, NULL, NULL, 0, '2023-05-14 19:05:46', '2023-05-14 19:05:46'),
-(50, 42, 2, 0, 1, 4, 'BT01', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 2, NULL, NULL, NULL, 0, '2023-05-14 19:05:46', '2023-05-14 19:05:46'),
-(51, 42, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Small', 1100.00, 1, NULL, NULL, NULL, 0, '2023-05-14 19:05:46', '2023-05-14 19:05:46'),
-(52, 43, 2, 0, 1, 5, 'GT01', 'Green T-Shirt', 'Green', 'Medium', 810.00, 1, NULL, NULL, NULL, 0, '2023-05-15 20:05:24', '2023-05-15 20:05:24'),
-(53, 43, 2, 0, 1, 4, 'BT01', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 2, NULL, NULL, NULL, 0, '2023-05-15 20:05:24', '2023-05-15 20:05:24'),
-(54, 43, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Small', 1100.00, 1, NULL, NULL, NULL, 0, '2023-05-15 20:05:24', '2023-05-15 20:05:24'),
-(55, 44, 2, 0, 1, 5, 'GT01', 'Green T-Shirt', 'Green', 'Medium', 810.00, 1, NULL, NULL, NULL, 0, '2023-05-18 17:47:45', '2023-05-18 17:47:45'),
-(56, 44, 2, 0, 1, 4, 'BT01', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 2, NULL, NULL, NULL, 0, '2023-05-18 17:47:45', '2023-05-18 17:47:45'),
-(57, 44, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Small', 1100.00, 1, NULL, NULL, NULL, 0, '2023-05-18 17:47:45', '2023-05-18 17:47:45'),
-(58, 45, 2, 0, 1, 5, 'GT01', 'Green T-Shirt', 'Green', 'Medium', 810.00, 1, NULL, NULL, NULL, 0, '2023-05-21 13:11:16', '2023-05-21 13:11:16'),
-(59, 45, 2, 0, 1, 4, 'BT01', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 2, NULL, NULL, NULL, 0, '2023-05-21 13:11:17', '2023-05-21 13:11:17'),
-(60, 45, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Small', 1100.00, 1, NULL, NULL, NULL, 0, '2023-05-21 13:11:17', '2023-05-21 13:11:17'),
-(61, 50, 2, 0, 1, 5, 'GT01', 'Green T-Shirt', 'Green', 'Medium', 810.00, 2, NULL, NULL, NULL, 0, '2023-06-09 13:19:38', '2023-06-09 13:19:38'),
-(62, 50, 2, 0, 1, 4, 'BT01', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 2, NULL, NULL, NULL, 0, '2023-06-09 13:19:38', '2023-06-09 13:19:38'),
-(63, 50, 2, 0, 1, 2, 'RC001', 'Red Casual T-Shirt', 'Red', 'Small', 1100.00, 1, NULL, NULL, NULL, 0, '2023-06-09 13:19:38', '2023-06-09 13:19:38'),
-(64, 53, 2, 0, 1, 4, 'BT01', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 1, NULL, NULL, NULL, NULL, '2023-07-26 17:47:50', '2023-07-26 17:47:50'),
-(65, 55, 2, 1, 2, 8, 'BT501', 'Blue T-Shirt', 'Blue', 'Small', 1000.00, 1, NULL, NULL, NULL, 2, '2023-07-26 20:15:04', '2023-07-26 20:15:04'),
-(66, 56, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '128GB-4GB', 14400.00, 1, NULL, NULL, NULL, NULL, '2023-08-07 16:33:30', '2023-08-07 16:33:30'),
-(67, 57, 2, 0, 1, 1, 'RN11', 'Redmi Note 11', 'Blue', '128GB-4GB', 14400.00, 1, NULL, NULL, NULL, NULL, '2023-12-18 22:08:58', '2023-12-18 22:08:58'),
-(68, 58, 2, 9, 7, 10, 'PT01', 'Pink T-Shirt', 'Pink', 'Small', 807.50, 1, NULL, NULL, NULL, 0, '2023-12-18 22:54:38', '2023-12-18 22:54:38'),
-(69, 59, 2, 9, 7, 10, 'PT01', 'Pink T-Shirt', 'Pink', 'Small', 807.50, 1, NULL, NULL, NULL, 0, '2023-12-19 00:10:32', '2023-12-19 00:10:32'),
-(70, 60, 2, 9, 7, 10, 'PT01', 'Pink T-Shirt', 'Pink', 'Small', 807.50, 1, NULL, NULL, NULL, 0, '2023-12-19 00:22:44', '2023-12-19 00:22:44'),
-(71, 61, 2, 9, 7, 10, 'PT01', 'Pink T-Shirt', 'Pink', 'Small', 807.50, 1, NULL, NULL, NULL, 0, '2023-12-19 00:24:52', '2023-12-19 00:24:52');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `order_item_statuses`
 --
 
 CREATE TABLE `order_item_statuses` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1258,7 +1037,7 @@ INSERT INTO `order_item_statuses` (`id`, `name`, `status`, `created_at`, `update
 --
 
 CREATE TABLE `order_statuses` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1299,7 +1078,7 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `payments` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `order_id` int NOT NULL,
   `user_id` int NOT NULL,
   `payment_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -1667,7 +1446,7 @@ INSERT INTO `prepaid_pincodes` (`id`, `pincode`, `created_at`, `updated_at`) VAL
 --
 
 CREATE TABLE `products` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `section_id` int NOT NULL,
   `category_id` int NOT NULL,
   `brand_id` int NOT NULL,
@@ -1676,7 +1455,6 @@ CREATE TABLE `products` (
   `admin_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_color` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_price` float NOT NULL,
   `product_discount` float NOT NULL,
   `product_weight` int NOT NULL,
@@ -1684,14 +1462,6 @@ CREATE TABLE `products` (
   `product_video` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `group_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `operating_system` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `screen_size` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `occasion` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fit` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pattern` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sleeve` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ram` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `fabric` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_keywords` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -1703,29 +1473,14 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `products`
---
 
-INSERT INTO `products` (`id`, `section_id`, `category_id`, `brand_id`, `vendor_id`, `admin_id`, `admin_type`, `product_name`, `product_code`, `product_color`, `product_price`, `product_discount`, `product_weight`, `product_image`, `product_video`, `group_code`, `description`, `operating_system`, `screen_size`, `occasion`, `fit`, `pattern`, `sleeve`, `ram`, `fabric`, `meta_title`, `meta_keywords`, `meta_description`, `is_featured`, `is_bestseller`, `status`, `created_at`, `updated_at`) VALUES
-(1, 2, 5, 7, 0, 1, 'superadmin', 'Redmi Note 11', 'RN11', 'Blue', 15000, 20, 500, '91540.jpg', '', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 'Android', 'Up to 3.9 in', NULL, NULL, NULL, NULL, '4 GB', NULL, 'Redmi Note 11', 'redmi note 11', 'Best price for Redmi Note 11', 'Yes', 'Yes', 1, NULL, '2023-08-13 20:44:59'),
-(2, 1, 6, 2, 0, 1, 'superadmin', 'Red Casual T-Shirt', 'RC001', 'Red', 1100, 0, 200, '95575.jpg', '', '100', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', NULL, NULL, NULL, NULL, NULL, 'half sleeve', NULL, 'cotton', NULL, NULL, NULL, 'Yes', 'Yes', 1, NULL, '2023-08-13 20:44:39'),
-(3, 1, 6, 1, 0, 1, 'superadmin', 'Arrow T-Shirt', 'AT01', 'Red', 1500, 0, 400, '27416.jpg', '880084420.mp4', NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', NULL, NULL, NULL, NULL, NULL, 'half sleeve', NULL, 'cotton', 'Pure Cotton T-shirt', 'cotton T-shirt, red T-shirt', 'This is a high quality cotton T-shirt', 'No', 'Yes', 1, '2022-09-02 22:50:41', '2023-05-12 10:25:32'),
-(4, 1, 6, 3, 0, 1, 'superadmin', 'Blue T-Shirt', 'BT01', 'Blue', 2500, 0, 0, '58892.png', NULL, '100', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', NULL, NULL, NULL, NULL, NULL, 'half sleeve', NULL, 'polyester', NULL, NULL, NULL, 'No', 'Yes', 1, '2022-09-26 18:44:39', '2023-05-12 10:21:52'),
-(5, 1, 6, 2, 0, 1, 'superadmin', 'Green T-Shirt', 'GT01', 'Green', 900, 10, 100, '79204.png', NULL, '100', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', NULL, NULL, NULL, NULL, NULL, 'half sleeve', NULL, 'polyester', NULL, NULL, NULL, 'Yes', 'No', 1, '2022-09-26 18:46:39', '2023-05-12 10:22:05'),
-(6, 1, 7, 1, 0, 1, 'superadmin', 'Black Shirt', 'BS01', 'Blue', 2000, 10, 100, '20083.jpg', NULL, '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', NULL, NULL, NULL, NULL, NULL, 'full sleeve', NULL, 'polyester', NULL, NULL, NULL, 'Yes', 'Yes', 1, '2022-09-28 12:16:45', '2022-10-31 21:56:02'),
-(7, 2, 4, 7, 0, 1, 'superadmin', 'Redmi Phone', 'RT001', 'Red', 12000, 0, 0, NULL, NULL, '', NULL, 'Android', '5 to 5.4 in', NULL, NULL, NULL, NULL, '4 GB', NULL, NULL, NULL, NULL, 'No', 'No', 1, '2022-10-06 14:37:36', '2022-10-06 14:37:36'),
-(8, 1, 6, 2, 1, 2, 'vendor', 'Blue T-Shirt', 'BT501', 'Blue', 1600, 0, 0, '64835.jpg', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 'full sleeve', NULL, 'cotton', NULL, NULL, NULL, 'No', 'No', 1, '2022-10-15 13:10:41', '2022-10-15 13:10:41'),
-(9, 1, 6, 3, 9, 7, 'vendor', 'Black T-shirt', 'BT01', 'black', 1200, 10, 200, '95056.jpg', NULL, '100', NULL, NULL, NULL, NULL, NULL, NULL, 'half sleeve', NULL, 'cotton', NULL, NULL, NULL, 'No', 'No', 1, '2023-03-03 21:12:45', '2023-06-09 12:41:41'),
-(10, 1, 6, 1, 9, 7, 'vendor', 'Pink T-Shirt', 'PT01', 'Pink', 950, 15, 220, '20148.jpg', NULL, '100', NULL, NULL, NULL, NULL, NULL, NULL, 'half sleeve', NULL, 'cotton', NULL, NULL, NULL, 'No', 'No', 1, '2023-03-05 20:56:07', '2023-03-19 01:24:00');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `products_attributes`
 --
 
 CREATE TABLE `products_attributes` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `product_id` int NOT NULL,
   `size` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` double(8,2) NOT NULL,
@@ -1737,37 +1492,13 @@ CREATE TABLE `products_attributes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `products_attributes`
---
-
-INSERT INTO `products_attributes` (`id`, `product_id`, `size`, `price`, `stock`, `sku`, `status`, `created_at`, `updated_at`) VALUES
-(1, 3, 'Small', 1100.00, 1, 'RC001-S', 1, '2022-09-11 20:11:15', '2022-10-29 19:54:29'),
-(2, 3, 'Medium', 1200.00, 0, 'RC001-M', 1, '2022-09-11 20:11:16', '2022-10-29 19:54:29'),
-(3, 3, 'Large', 1300.00, 0, 'RC001-L', 1, '2022-09-11 20:11:16', '2022-10-29 19:54:30'),
-(4, 2, 'Small', 1100.00, 4, 'BT001-S', 1, '2022-10-10 13:42:25', '2023-06-09 13:19:38'),
-(5, 2, 'Medium', 1200.00, 11, 'BT001-M', 1, '2022-10-10 13:43:40', '2023-04-07 19:49:51'),
-(6, 2, 'Large', 1300.00, 12, 'BT001-L', 1, '2022-10-10 13:43:40', '2023-04-25 13:24:20'),
-(7, 1, '64GB-4GB', 15000.00, 99, 'RN11644', 1, '2022-10-10 14:00:11', '2023-04-08 02:40:23'),
-(8, 1, '128GB-4GB', 18000.00, 148, 'RN111284', 1, '2022-10-10 15:27:56', '2023-12-18 22:08:58'),
-(9, 7, '64GB-4GB', 12000.00, 100, 'RT001644', 1, '2022-10-10 17:21:27', '2022-10-10 17:21:27'),
-(10, 4, 'Small', 1000.00, 86, 'BT01-S', 1, '2022-10-10 21:36:38', '2023-07-26 17:47:50'),
-(11, 5, 'Small', 800.00, 2, 'GT01-S', 1, '2022-10-10 21:38:12', '2023-06-09 13:19:18'),
-(12, 5, 'Medium', 900.00, 4, 'GT01-M', 1, '2022-10-10 21:39:45', '2023-06-09 13:19:38'),
-(13, 6, 'Small', 2000.00, 2, 'BS01-S', 1, '2022-10-10 21:40:42', '2023-06-09 13:08:27'),
-(14, 6, 'Medium', 3000.00, 10, 'BS01-M', 1, '2022-10-31 21:59:57', '2023-06-09 13:08:27'),
-(15, 8, 'Small', 1000.00, 6, 'BT501-S', 1, '2023-03-01 12:36:27', '2023-07-26 20:15:04'),
-(16, 8, 'Medium', 1200.00, 9, 'BT501-M', 1, '2023-03-01 12:36:27', '2023-04-22 22:05:22'),
-(17, 9, 'Small', 1200.00, 3, 'BS001-S', 1, '2023-03-03 21:16:33', '2023-03-03 21:16:33'),
-(18, 10, 'Small', 950.00, 0, 'PT01', 1, '2023-03-05 20:56:31', '2023-12-19 00:24:52');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `products_filters`
 --
 
 CREATE TABLE `products_filters` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `cat_ids` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `filter_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `filter_column` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -1777,27 +1508,12 @@ CREATE TABLE `products_filters` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `products_filters`
---
 
-INSERT INTO `products_filters` (`id`, `cat_ids`, `filter_name`, `filter_column`, `status`, `created_at`, `updated_at`) VALUES
-(1, '1,6,7,2,8,3', 'Fabric', 'fabric', 1, '2022-10-03 09:05:25', '2022-10-03 09:05:25'),
-(2, '4,5', 'RAM', 'ram', 1, '2022-10-03 09:43:23', '2022-10-03 09:43:23'),
-(3, '1,6,7,2,8,3', 'Sleeve', 'sleeve', 1, '2022-10-03 09:59:32', '2022-10-03 09:59:32'),
-(4, '1,6,7,2,8,3', 'Pattern', 'pattern', 1, '2022-10-03 10:14:02', '2022-10-03 10:14:02'),
-(5, '1,6,7,2,8,3', 'Fit', 'fit', 1, '2022-10-03 10:14:35', '2022-10-03 10:14:35'),
-(6, '1,6,7,2,8,3', 'Occasion', 'occasion', 1, '2022-10-03 10:31:13', '2022-10-03 10:31:13'),
-(7, '4,5', 'Screen Size', 'screen_size', 1, '2022-10-03 12:11:45', '2022-10-03 12:11:45'),
-(8, '4,5', 'Operating System', 'operating_system', 1, '2022-10-03 12:18:21', '2022-10-03 12:18:21');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `products_filters_values`
 --
 
 CREATE TABLE `products_filters_values` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `filter_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `filter_value` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint NOT NULL,
@@ -1805,36 +1521,13 @@ CREATE TABLE `products_filters_values` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `products_filters_values`
---
 
-INSERT INTO `products_filters_values` (`id`, `filter_id`, `filter_value`, `status`, `created_at`, `updated_at`) VALUES
-(1, '1', 'cotton', 1, '2022-10-03 11:52:27', '2022-10-03 11:52:36'),
-(2, '1', 'polyester', 1, '2022-10-03 11:53:40', '2022-10-03 11:53:40'),
-(3, '1', 'wool', 1, '2022-10-03 11:54:27', '2022-10-03 11:54:27'),
-(4, '3', 'full sleeve', 1, '2022-10-03 11:59:03', '2022-10-03 11:59:03'),
-(5, '3', 'half sleeve', 1, '2022-10-03 12:02:08', '2022-10-03 12:02:08'),
-(6, '3', 'short sleeve', 1, '2022-10-03 12:01:14', '2022-10-03 12:01:14'),
-(7, '2', '4 GB', 1, '2022-10-03 12:04:14', '2022-10-03 12:04:14'),
-(8, '2', '8 GB', 1, '2022-10-03 12:08:25', '2022-10-03 12:08:25'),
-(9, '7', 'Up to 3.9 in', 1, '2022-10-03 12:16:34', '2022-10-03 12:16:34'),
-(10, '7', '4 to 4.4 in', 1, '2022-10-03 12:17:19', '2022-10-03 12:17:19'),
-(11, '8', 'Android', 1, '2022-10-03 12:19:07', '2022-10-03 12:19:07'),
-(12, '8', 'iOS', 1, '2022-10-03 12:20:19', '2022-10-03 12:20:19'),
-(13, '8', 'Windows', 1, '2022-10-03 12:21:02', '2022-10-03 12:21:02'),
-(14, '7', '4.5 to 4.9 in', 1, '2022-10-06 12:39:50', '2022-10-06 12:39:50'),
-(15, '7', '5 to 5.4 in', 1, '2022-10-06 13:10:22', '2022-10-06 13:10:22'),
-(16, '7', '5.5 in & above', 1, '2022-10-06 13:11:25', '2022-10-06 13:11:25');
 
--- --------------------------------------------------------
-
---
 -- Table structure for table `products_images`
 --
 
 CREATE TABLE `products_images` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `product_id` int NOT NULL,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint NOT NULL,
@@ -1842,23 +1535,11 @@ CREATE TABLE `products_images` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `products_images`
---
 
-INSERT INTO `products_images` (`id`, `product_id`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(1, 2, '27416.jpg8713.jpg', 1, '2022-09-19 22:14:34', '2022-09-19 22:30:29'),
-(2, 2, 'dfd.jpg4510.jpg', 1, '2022-09-19 22:14:34', '2022-09-19 22:30:30'),
-(4, 2, 't-shirt-red-man-1710578.jpg97967.jpg', 1, '2022-11-01 02:07:37', '2022-11-01 02:07:37');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ratings`
 --
 
 CREATE TABLE `ratings` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `user_id` int NOT NULL,
   `product_id` int NOT NULL,
   `review` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -1868,19 +1549,7 @@ CREATE TABLE `ratings` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `ratings`
---
 
-INSERT INTO `ratings` (`id`, `user_id`, `product_id`, `review`, `rating`, `status`, `created_at`, `updated_at`) VALUES
-(1, 2, 1, 'It\'s a great mobile phone!', 4, 1, NULL, '2023-07-05 18:30:11'),
-(3, 2, 2, 'Nice red t-shirt!', 4, 1, '2023-07-08 19:14:14', '2023-07-11 16:31:24'),
-(4, 2, 4, 'Very nice blue t-shirt!', 5, 1, '2023-07-11 16:33:11', '2023-07-11 16:33:34'),
-(5, 34, 4, 'Not bad blue t-shirt!', 2, 1, '2023-07-11 19:37:22', '2023-07-11 19:38:02');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `recently_viewed_products`
 --
 
@@ -1892,183 +1561,22 @@ CREATE TABLE `recently_viewed_products` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `recently_viewed_products`
---
 
-INSERT INTO `recently_viewed_products` (`id`, `product_id`, `session_id`, `created_at`, `updated_at`) VALUES
-(1, 5, 'cf8e7ee925e90bcfee46bca79a53efac', NULL, NULL),
-(2, 3, 'cf8e7ee925e90bcfee46bca79a53efac', NULL, NULL),
-(3, 2, 'cf8e7ee925e90bcfee46bca79a53efac', NULL, NULL),
-(4, 4, 'cf8e7ee925e90bcfee46bca79a53efac', NULL, NULL),
-(5, 8, 'cf8e7ee925e90bcfee46bca79a53efac', NULL, NULL),
-(6, 5, '0f5507dad3983e0c3e8dee119cd91f14', NULL, NULL),
-(7, 2, '0f5507dad3983e0c3e8dee119cd91f14', NULL, NULL),
-(8, 2, '74d6d8c4e102f9babb7cc63550c2d140', NULL, NULL),
-(9, 2, '862087ef43881067f5b21deaf2c13943', NULL, NULL),
-(10, 2, 'd272a6fbe4d3485c0377f806a095f66e', NULL, NULL),
-(11, 4, 'd272a6fbe4d3485c0377f806a095f66e', NULL, NULL),
-(12, 4, 'dc8e443ce1dc5935d6a08ae99c291b37', NULL, NULL),
-(13, 2, '645bf3787e6f60d17f7423ab9c3808db', NULL, NULL),
-(14, 2, 'baca53fe770323a06f0c2b5af654fa93', NULL, NULL),
-(15, 2, 'c60344ee948d7ba6d68da1dd76e15b76', NULL, NULL),
-(16, 5, 'c60344ee948d7ba6d68da1dd76e15b76', NULL, NULL),
-(17, 5, '5c8539bf414d7eeae54f8abab9c0ee38', NULL, NULL),
-(18, 2, '5c8539bf414d7eeae54f8abab9c0ee38', NULL, NULL),
-(19, 2, '7ad795dc60d80e18d539758068e3c4e2', NULL, NULL),
-(20, 5, '7ad795dc60d80e18d539758068e3c4e2', NULL, NULL),
-(21, 2, '22ff3817f14d878331bf007d2dcea6f5', NULL, NULL),
-(22, 5, '22ff3817f14d878331bf007d2dcea6f5', NULL, NULL),
-(23, 2, '6d717cff9f01d04ff7ef2debec9edf31', NULL, NULL),
-(24, 5, '6d717cff9f01d04ff7ef2debec9edf31', NULL, NULL),
-(25, 4, '6d717cff9f01d04ff7ef2debec9edf31', NULL, NULL),
-(26, 2, '19649472505c75da7317a362a8651522', NULL, NULL),
-(27, 2, '56254dd8ea2bfb0bf12532b7d3da1a81', NULL, NULL),
-(28, 5, '56254dd8ea2bfb0bf12532b7d3da1a81', NULL, NULL),
-(29, 5, '1ec97b7ec8728ce15160c0c5baf20ecf', NULL, NULL),
-(30, 4, '5b205a6a581f067960cbd653b90c1ee0', NULL, NULL),
-(31, 5, '5b205a6a581f067960cbd653b90c1ee0', NULL, NULL),
-(32, 8, '5b205a6a581f067960cbd653b90c1ee0', NULL, NULL),
-(33, 3, '5b205a6a581f067960cbd653b90c1ee0', NULL, NULL),
-(34, 4, '5088d2b9d971513dc3fbf2b98f3dfb97', NULL, NULL),
-(35, 3, '5088d2b9d971513dc3fbf2b98f3dfb97', NULL, NULL),
-(36, 2, '5088d2b9d971513dc3fbf2b98f3dfb97', NULL, NULL),
-(37, 2, '6e07c9e036d4a0e2c905bfdb51917eed', NULL, NULL),
-(38, 5, 'af69e6aa11ee42a18a553c1d997f68f6', NULL, NULL),
-(39, 2, 'af69e6aa11ee42a18a553c1d997f68f6', NULL, NULL),
-(40, 4, '1eb829d83f40a8e7a6ac067b3a1d4da8', NULL, NULL),
-(41, 5, '1eb829d83f40a8e7a6ac067b3a1d4da8', NULL, NULL),
-(42, 6, '1eb829d83f40a8e7a6ac067b3a1d4da8', NULL, NULL),
-(43, 5, 'cc0fc76add9971b8c35776e4e97c472d', NULL, NULL),
-(44, 2, 'd3360c6e24caf83671ad64038e980bbe', NULL, NULL),
-(45, 4, 'd3360c6e24caf83671ad64038e980bbe', NULL, NULL),
-(46, 8, 'd3360c6e24caf83671ad64038e980bbe', NULL, NULL),
-(47, 2, 'cbff8122dd2e30e147c578df1f85712b', NULL, NULL),
-(48, 8, '7bd0eb514d3599057de35a1353956a5e', NULL, NULL),
-(49, 2, '7bd0eb514d3599057de35a1353956a5e', NULL, NULL),
-(50, 9, '55fd5a3fee59fc277b66b44ede0e7c29', NULL, NULL),
-(51, 10, '09d1678b912d6b669c440a103c07d406', NULL, NULL),
-(52, 9, '09d1678b912d6b669c440a103c07d406', NULL, NULL),
-(53, 2, 'f1ffef91d5d97de89d81f9a682d5567c', NULL, NULL),
-(54, 1, 'f1ffef91d5d97de89d81f9a682d5567c', NULL, NULL),
-(55, 2, '17f2908bda8d432f469ea27dc4578cc1', NULL, NULL),
-(56, 10, '6a9b0aa64d0537a64e369a61abc94929', NULL, NULL),
-(57, 2, '6a9b0aa64d0537a64e369a61abc94929', NULL, NULL),
-(58, 4, '6a9b0aa64d0537a64e369a61abc94929', NULL, NULL),
-(59, 9, '6a9b0aa64d0537a64e369a61abc94929', NULL, NULL),
-(60, 1, '6a9b0aa64d0537a64e369a61abc94929', NULL, NULL),
-(61, 4, '20fd3904b5673b235314b95e4fd841d2', NULL, NULL),
-(62, 5, '20fd3904b5673b235314b95e4fd841d2', NULL, NULL),
-(63, 10, '20fd3904b5673b235314b95e4fd841d2', NULL, NULL),
-(64, 2, '20fd3904b5673b235314b95e4fd841d2', NULL, NULL),
-(65, 2, '3d869470fba4782c683752d89757853d', NULL, NULL),
-(66, 10, 'a1684f50ef7d61b6fe4ad0845dee6f71', NULL, NULL),
-(67, 9, '26741bc7c08a2ee6941592756a4be4e1', NULL, NULL),
-(68, 9, 'fc6047d5509dbd7a74078c81d3d9c044', NULL, NULL),
-(69, 10, 'fc6047d5509dbd7a74078c81d3d9c044', NULL, NULL),
-(70, 4, 'f3ce7a6d51c0d21855e59643b42bbb4e', NULL, NULL),
-(71, 5, '5617d343aa7e9b62d5475c899ca3dae3', NULL, NULL),
-(72, 2, 'bbc136a855f14954aad52f55bf5db70d', NULL, NULL),
-(73, 1, 'bbc136a855f14954aad52f55bf5db70d', NULL, NULL),
-(74, 5, 'bbc136a855f14954aad52f55bf5db70d', NULL, NULL),
-(75, 2, '915e9c2e16355f46e0e77f0ff3b08d9f', NULL, NULL),
-(76, 2, '3c81dd15139ad88810c6ed5924571283', NULL, NULL),
-(77, 9, '3c81dd15139ad88810c6ed5924571283', NULL, NULL),
-(78, 1, '3c81dd15139ad88810c6ed5924571283', NULL, NULL),
-(79, 1, 'acb87c9a08ca78f0ede30e19e0870c0d', NULL, NULL),
-(80, 2, 'e9f1297c64e70451e3eac4c89c6a1f16', NULL, NULL),
-(81, 2, '07f369959838bc3cb7af64baf8c7e7c3', NULL, NULL),
-(82, 3, '07f369959838bc3cb7af64baf8c7e7c3', NULL, NULL),
-(83, 2, '946c2d8ed159e2935ff1fa159d24dbc7', NULL, NULL),
-(84, 4, '946c2d8ed159e2935ff1fa159d24dbc7', NULL, NULL),
-(85, 3, '907fe403cd200a61e98769dfc3398710', NULL, NULL),
-(86, 2, '907fe403cd200a61e98769dfc3398710', NULL, NULL),
-(87, 1, '907fe403cd200a61e98769dfc3398710', NULL, NULL),
-(88, 2, 'f945daeb6a96dd25613f5da29ec2b2f1', NULL, NULL),
-(89, 5, '7861a0d776e4e9120f833ba960b59c77', NULL, NULL),
-(90, 5, '336adca83822340b6a26dcf407e20a81', NULL, NULL),
-(91, 1, '336adca83822340b6a26dcf407e20a81', NULL, NULL),
-(92, 2, '84a19f3c5ba04028ec98c7d49db68bef', NULL, NULL),
-(93, 2, '7a0fbef755942a32b823a8a36e980b16', NULL, NULL),
-(94, 2, 'bd3c741cce9136862a289664e7d2e8d6', NULL, NULL),
-(95, 2, '0f0d8d1cdd8e82e062b26745b114fa47', NULL, NULL),
-(96, 2, 'fa145b842656b9a076820f07b743e75d', NULL, NULL),
-(97, 2, '202d4d64a35a7b847887f6236b64bb47', NULL, NULL),
-(98, 8, 'fc7672f0b8d32c5b22ede33c2195ffb9', NULL, NULL),
-(99, 5, 'fc7672f0b8d32c5b22ede33c2195ffb9', NULL, NULL),
-(100, 8, '38d7160f4cbb2bce323f796e8f1d77d2', NULL, NULL),
-(101, 2, '41b0929f60f7509876d2c82b80e25e91', NULL, NULL),
-(102, 8, '41b0929f60f7509876d2c82b80e25e91', NULL, NULL),
-(103, 5, '41b0929f60f7509876d2c82b80e25e91', NULL, NULL),
-(104, 2, '3e0281eeca9f78a51a3ec257aa6b34d9', NULL, NULL),
-(105, 1, '3e0281eeca9f78a51a3ec257aa6b34d9', NULL, NULL),
-(106, 2, '1114c0313ca78b4638e0a67bb6e61d83', NULL, NULL),
-(107, 4, '1114c0313ca78b4638e0a67bb6e61d83', NULL, NULL),
-(108, 5, '1114c0313ca78b4638e0a67bb6e61d83', NULL, NULL),
-(109, 1, '0d59f4133dcd87a0882cbaa3e51b5196', NULL, NULL),
-(110, 2, '0d59f4133dcd87a0882cbaa3e51b5196', NULL, NULL),
-(111, 2, '4e0405fa3832b4bba9244287d1565df7', NULL, NULL),
-(112, 2, '592fc02443a4db5c9a625ee7d58e72c5', NULL, NULL),
-(113, 2, '11d127c06062691e7814e4d0fd872983', NULL, NULL),
-(114, 1, '11d127c06062691e7814e4d0fd872983', NULL, NULL),
-(115, 3, '11d127c06062691e7814e4d0fd872983', NULL, NULL),
-(116, 3, 'fae8818e4ffcc7493c361b289e8b2d5b', NULL, NULL),
-(117, 4, 'fae8818e4ffcc7493c361b289e8b2d5b', NULL, NULL),
-(118, 2, '4c43ac9e27935e9fe6f466b6a62d18b4', NULL, NULL),
-(119, 3, '4c43ac9e27935e9fe6f466b6a62d18b4', NULL, NULL),
-(120, 4, '4c43ac9e27935e9fe6f466b6a62d18b4', NULL, NULL),
-(121, 4, 'ae6b24dcb852f000eddde5da1d4d4fd7', NULL, NULL),
-(122, 4, '5b7a3e97ac8b6b67e643be22facddb60', NULL, NULL),
-(123, 4, '85cfe14fc1a847c1cf17479176346161', NULL, NULL),
-(124, 4, '5d679934c77c2f9998fe6e8836a5490e', NULL, NULL),
-(125, 4, '3f1225d199328a690f0ae000830e0730', NULL, NULL),
-(126, 8, '3f1225d199328a690f0ae000830e0730', NULL, NULL),
-(127, 10, '444c3b573bbe18ac70d59261875ac169', NULL, NULL),
-(128, 9, '444c3b573bbe18ac70d59261875ac169', NULL, NULL),
-(129, 2, '444c3b573bbe18ac70d59261875ac169', NULL, NULL),
-(130, 2, 'af690783e2408f23b745c76873d045b3', NULL, NULL),
-(131, 2, '9f9d27c3ba0428ef9b3223778a7355ca', NULL, NULL),
-(132, 2, '2716a1c72c48670213369960cbbabdd5', NULL, NULL),
-(133, 1, 'af690783e2408f23b745c76873d045b3', NULL, NULL),
-(134, 9, 'af690783e2408f23b745c76873d045b3', NULL, NULL),
-(135, 10, 'af690783e2408f23b745c76873d045b3', NULL, NULL),
-(136, 4, 'ba8e260521c9e9e773e2080e131c7ea0', NULL, NULL),
-(137, 3, 'ba8e260521c9e9e773e2080e131c7ea0', NULL, NULL),
-(138, 2, 'ba8e260521c9e9e773e2080e131c7ea0', NULL, NULL),
-(139, 1, 'ba8e260521c9e9e773e2080e131c7ea0', NULL, NULL),
-(140, 8, 'ba8e260521c9e9e773e2080e131c7ea0', NULL, NULL),
-(141, 10, 'ffc49003025cc852d02b43295b4accfc', NULL, NULL),
-(142, 1, '353379f27d45f77a258c3ab7594f84d3', NULL, NULL);
 
--- --------------------------------------------------------
-
---
 -- Table structure for table `sections`
 --
 
 CREATE TABLE `sections` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `sections`
---
 
-INSERT INTO `sections` (`id`, `name`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Clothing', 1, NULL, '2022-09-22 19:28:50'),
-(2, 'Electronics', 1, NULL, '2022-09-22 18:38:47'),
-(4, 'Appliances', 1, NULL, NULL),
-(6, 'Computers', 1, '2022-08-19 22:27:04', '2022-09-22 18:51:54');
 
--- --------------------------------------------------------
-
---
 -- Table structure for table `shipping_charges`
---
 
 CREATE TABLE `shipping_charges` (
   `id` bigint UNSIGNED NOT NULL,
@@ -2342,7 +1850,7 @@ INSERT INTO `shipping_charges` (`id`, `country`, `0_500g`, `501g_1000g`, `1001_2
 --
 
 CREATE TABLE `users` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `city` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -2368,14 +1876,12 @@ INSERT INTO `users` (`id`, `name`, `address`, `city`, `state`, `country`, `pinco
 (1, 'Mercy', NULL, NULL, NULL, NULL, NULL, '9650000000', 'mercy@mail.com', NULL, '$2a$12$xvkjSScUPRexfcJTAy9ATutIeGUuRgJrjDIdL/.xlrddEvRZINpeC', 1, NULL, NULL, '2022-11-09 21:24:54', '2022-11-09 21:24:54'),
 (2, 'Clitus Turner', 'Machakos', 'Machakos', 'Machakos', 'Kenya', '141001', '01195786255', 'clitus@user.com', NULL, '$2a$12$xvkjSScUPRexfcJTAy9ATutIeGUuRgJrjDIdL/.xlrddEvRZINpeC', 1, NULL, NULL, '2022-11-10 21:52:20', '2022-11-28 13:57:55');
 
--- --------------------------------------------------------
 
---
 -- Table structure for table `vendors`
 --
 
 CREATE TABLE `vendors` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `city` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -2391,16 +1897,12 @@ CREATE TABLE `vendors` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
 -- Dumping data for table `vendors`
---
 
 INSERT INTO `vendors` (`id`, `name`, `address`, `city`, `state`, `country`, `pincode`, `mobile`, `email`, `confirm`, `commission`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Test Vendor 1 ', '12 Market Street', 'Test', 'Test', 'US', '33315', '01259598421', 'test1@vendor.com', 'No', 5.00, 1, NULL, '2023-04-21 23:21:23'),
-(5, 'Test Vendor 2', 'Green Basket', 'Test', 'Test', 'US', NULL, '01154572136', 'test2@vendor.com', 'No', 5.00, 1, '2022-10-13 22:55:41', '2023-04-18 14:07:27'),
-(6, 'Test Vendor 3', 'Grocer store.', 'Test', 'Test', 'US', '54151', '01098571935', 'test3@vendor.com', 'Yes', 3.00, 0, '2022-10-14 01:20:03', '2023-04-18 14:08:12'),
-(8, 'Safaa Masoud', '14 Talaat Harb St.', 'Abo Tesht', 'Qena', 'Egypt', NULL, '01255374956', 'safaa@vendor.com', 'Yes', 0.00, 0, '2022-10-14 18:46:53', '2022-10-14 23:23:51'),
-(9, 'Ghali Shennway', '8 Fady Safwat St.', 'El Ganayen', 'Suez', 'Egypt', NULL, '01154557789', 'ghali@yahoo.com', 'Yes', 0.00, 1, '2022-10-14 18:48:28', '2022-10-14 18:48:28');
+(2, 'Test Vendor 2', 'Green Basket', 'Test', 'Test', 'US', NULL, '01154572136', 'test2@vendor.com', 'No', 5.00, 1, '2022-10-13 22:55:41', '2023-04-18 14:07:27'),
+(3, 'Test Vendor 3', 'Grocer store.', 'Test', 'Test', 'US', '54151', '01098571935', 'test3@vendor.com', 'Yes', 3.00, 0, '2022-10-14 01:20:03', '2023-04-18 14:08:12');
 
 -- --------------------------------------------------------
 
@@ -2409,7 +1911,7 @@ INSERT INTO `vendors` (`id`, `name`, `address`, `city`, `state`, `country`, `pin
 --
 
 CREATE TABLE `vendors_bank_details` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` BIGINT UNSIGNED NOT NULL PRIMARY KEY,
   `vendor_id` int NOT NULL,
   `account_holder_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `bank_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -2459,70 +1961,15 @@ CREATE TABLE `vendors_business_details` (
 --
 
 INSERT INTO `vendors_business_details` (`id`, `vendor_id`, `shop_name`, `shop_address`, `shop_city`, `shop_state`, `shop_country`, `shop_pincode`, `shop_mobile`, `shop_website`, `shop_email`, `address_proof`, `address_proof_image`, `business_license_number`, `gst_number`, `pan_number`, `created_at`, `updated_at`) VALUES
-(1, 1, 'FreshMart Grocery', '12 Market Street', 'test', 'test', 'US', '00000000000', '1111111111', 'amazon.com.eg', 'test1@vendor.com', 'test card', '52583.png', '2222222', '3333333337', '444444444', NULL, '2022-10-15 20:11:35'),
-(2, 6, 'B Tech', 'test', 'sgs', 'sgsag', 'Bahrain', '454545', '1111111111', 'sagasga', NULL, 'PAN', '', '3333', '333333333', '11111', NULL, '2022-10-15 21:19:44'),
-(3, 9, 'Ghali Vendor', NULL, 'Cairo', NULL, NULL, NULL, '0113335845', NULL, NULL, 'Passport', '', NULL, NULL, NULL, NULL, NULL);
+(1, 1, 'FreshMart Grocery', '12 Market Street', 'test', 'test', 'US', '00000000000', '1111111111', 'amazon.com.eg', 'test1@vendor.com', 'test card', '52583.png', '2222222', '3333333337', '444444444', NULL, '2022-10-15 20:11:35');
 
---
--- Indexes for dumped tables
---
 
---
+
 -- Indexes for table `admins`
 --
 ALTER TABLE `admins`
-  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `admins_email_unique` (`email`);
 
---
--- Indexes for table `banners`
---
-ALTER TABLE `banners`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `brands`
---
-ALTER TABLE `brands`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `carts`
---
-ALTER TABLE `carts`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `cod_pincodes`
---
-ALTER TABLE `cod_pincodes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `countries`
---
-ALTER TABLE `countries`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `coupons`
---
-ALTER TABLE `coupons`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `delivery_addresses`
---
-ALTER TABLE `delivery_addresses`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -2530,18 +1977,7 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `newsletter_subscribers`
---
-ALTER TABLE `newsletter_subscribers`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `oauth_access_tokens`
 --
 ALTER TABLE `oauth_access_tokens`
@@ -2565,10 +2001,7 @@ ALTER TABLE `oauth_clients`
 --
 -- Indexes for table `oauth_personal_access_clients`
 --
-ALTER TABLE `oauth_personal_access_clients`
-  ADD PRIMARY KEY (`id`);
 
---
 -- Indexes for table `oauth_refresh_tokens`
 --
 ALTER TABLE `oauth_refresh_tokens`
@@ -2576,36 +2009,8 @@ ALTER TABLE `oauth_refresh_tokens`
   ADD KEY `oauth_refresh_tokens_access_token_id_index` (`access_token_id`);
 
 --
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `orders_logs`
---
-ALTER TABLE `orders_logs`
-  ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `orders_products`
---
-ALTER TABLE `orders_products`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `order_item_statuses`
---
-ALTER TABLE `order_item_statuses`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `order_statuses`
---
-ALTER TABLE `order_statuses`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -2614,10 +2019,7 @@ ALTER TABLE `password_resets`
 --
 -- Indexes for table `payments`
 --
-ALTER TABLE `payments`
-  ADD PRIMARY KEY (`id`);
 
---
 -- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
@@ -2632,40 +2034,10 @@ ALTER TABLE `prepaid_pincodes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `products_attributes`
---
-ALTER TABLE `products_attributes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `products_filters`
---
-ALTER TABLE `products_filters`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `products_filters_values`
 --
-ALTER TABLE `products_filters_values`
-  ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `products_images`
---
-ALTER TABLE `products_images`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ratings`
---
-ALTER TABLE `ratings`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `recently_viewed_products`
@@ -2676,10 +2048,7 @@ ALTER TABLE `recently_viewed_products`
 --
 -- Indexes for table `sections`
 --
-ALTER TABLE `sections`
-  ADD PRIMARY KEY (`id`);
 
---
 -- Indexes for table `shipping_charges`
 --
 ALTER TABLE `shipping_charges`
@@ -2689,39 +2058,17 @@ ALTER TABLE `shipping_charges`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
 -- Indexes for table `vendors`
 --
 ALTER TABLE `vendors`
-  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `vendors_email_unique` (`email`);
 
---
--- Indexes for table `vendors_bank_details`
---
-ALTER TABLE `vendors_bank_details`
-  ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `vendors_business_details`
---
-ALTER TABLE `vendors_business_details`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
 -- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
---
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
@@ -2805,11 +2152,6 @@ ALTER TABLE `orders_products`
 ALTER TABLE `recently_viewed_products`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
