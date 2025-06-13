@@ -287,13 +287,13 @@ $sections = \App\Models\Section::sections();
                 <div class="col-lg-9">
                     <ul class="bottom-nav g-nav u-d-none-lg">
                         <li>
-                            <a href="{{ url('search-products?search=new-arrivals') }}">New Arrivals 
-                            <span class="superscript-label-new">NEW</span>
+                            <a href="{{ url('search-products?search=new-arrivals') }}">Just In 
+                            <span class="superscript-label-new">FRESH</span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('search-products?search=best-sellers') }}">Best Seller 
-                            <span class="superscript-label-hot">HOT</span>
+                            <a href="{{ url('search-products?search=best-sellers') }}">Top Picks
+                            <span class="superscript-label-hot">FAVORITES</span>
                             </a>
                         </li>
                         <li>

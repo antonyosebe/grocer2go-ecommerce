@@ -33,7 +33,7 @@
             @if (!empty($meta_title))
                 {{ $meta_title }}
             @else
-                Laravel Multi Vendor E-commerce Template - By grocer2go Channel
+                By grocer2go Channel
             @endif
             
         </title>

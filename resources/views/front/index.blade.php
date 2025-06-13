@@ -46,12 +46,12 @@
         <div class="container">
             <div class="sec-maker-header text-center">
                 <h3 class="sec-maker-h3">TOP PRODUCTS</h3>
-                <ul class="nav tab-nav-style-1-a justify-content-center">
+                <!-- <ul class="nav tab-nav-style-1-a justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#men-latest-products">New Arrivals</a>
+                        <a class="nav-link active" data-toggle="tab" href="#men-latest-products">Just In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#men-best-selling-products">Best Sellers</a>
+                        <a class="nav-link" data-toggle="tab" href="#men-best-selling-products">Top Picks</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#discounted-products">Discounted Products</a>
@@ -59,12 +59,12 @@
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#men-featured-products">Featured Products</a>
                     </li>
-                </ul>
+                </ul> -->
             </div>
             <div class="wrapper-content">
                 <div class="outer-area-tab">
                     <div class="tab-content">
-                        <div class="tab-pane active show fade" id="men-latest-products">
+                        <div class="tab-pane active show fade" id="latest-products">
                             <div class="slider-fouc">
                                 <div class="products-slider owl-carousel" data-item="4">
 
