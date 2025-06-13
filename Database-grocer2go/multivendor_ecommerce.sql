@@ -68,7 +68,18 @@ CREATE TABLE `banners` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- Dumping data for table `banners`
+--
 
+INSERT INTO `banners` (`id`, `image`, `type`,  `title`, `alt`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'slide1.png', 'Slider',  'grocer2go', 'grocer2go', 1, '2025-05-12 16:48:57', '2025-05-12 16:48:57'),
+(2, 'slide2.png', 'Slider',  'grocer2go', 'grocer2go', 1,'2025-05-12 16:57:36', '2025-05-12 16:57:36'),
+(3, 'slide3.png', 'Slider', 'grocer2go', 'grocer2go', 1, '2025-05-12 20:17:36', '2025-05-12 20:57:19'),
+(4, 'slide4.png', 'Slider', 'grocer2go', 'grocer2go', 1, '2025-05-12 16:55:43', '2025-05-12 16:55:43'),
+
+
+
+-- --------------------------------------------------------
 
 
 -- --------------------------------------------------------
